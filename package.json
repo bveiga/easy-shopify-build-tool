@@ -1,5 +1,5 @@
 {
-	"name": "easy-shopify-build-tool",
+	"name": "simple-shopify-build-tool",
 	"version": "0.1",
 	"author": "Bruno Veiga",
 	"description": "The absolutely simplest build tool for building and deploying your theme to your Shopify store. Engineered for minimum dependencies.",
