@@ -37,7 +37,7 @@ This tool allows you to compile and deploy all your files to your Shopify theme.
 #### 1. SASS Files
 Reads each sass file in the root of the *styles* folder, and puts together files required using the **@import** sass function. Example file:
 
-```sass
+```css
 /*================ UTILS ================*/
 @import './tools/functions';
 @import './tools/mixins';
