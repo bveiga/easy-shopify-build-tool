@@ -4,16 +4,16 @@ The absolutely easiest build tool for building and deploying your theme to your 
 ## Expected Project Structure
 ```
 --project-folder/
-	|--src/
-		|--assets/
-		|--config/
-		|--layout/
-		|--locales/
-		|--scripts/
-		|--sections/
-		|--snippets/
-		|--styles/
-		|--templates/
+  |--src/
+    |--assets/
+    |--config/
+    |--layout/
+    |--locales/
+    |--scripts/
+    |--sections/
+    |--snippets/
+    |--styles/
+    |--templates/
 ```
 
 ## Setup
