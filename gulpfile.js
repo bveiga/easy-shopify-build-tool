@@ -3,8 +3,9 @@
 const gulp 			= require('gulp');
 const del 			= require('del');
 const sass 			= require('gulp-sass');
+const include			= require('gulp-include');
 
-/*----- Clean Distribution/Production directory -----*/
+/*----- Clean Distribution directory -----*/
 gulp.task('clean', function() {
 	return del(['dist/**'], {force: true});
 });
@@ -30,4 +31,12 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest('./dist/assets/'));
 });
 
-gulp.task('build', gulp.series('clean', 'copy', 'styles'));
+/*----- Concat Js -----*/
+gulp.task('scripts', function() {
+	return gulp.src('./src/scripts/*.js')
+    		.pipe(include())
+		.on('error', console.log)
+		.pipe(gulp.dest('./dist/assets/'));
+});
+
+gulp.task('default', gulp.series('clean', 'copy', 'styles', 'scripts'));
