@@ -1,6 +1,6 @@
 {
 	"name": "simple-shopify-build-tool",
-	"version": "0.1",
+	"version": "0.2",
 	"author": "Bruno Veiga",
 	"description": "The absolutely simplest build tool for building and deploying your theme to your Shopify store. Engineered for minimum dependencies.",
 	"license": "MIT",
@@ -9,7 +9,12 @@
 		"url": "https://github.com/bveiga/easy-shopify-build-tool.git"
 	},
 	"devDependencies": {
+		"del": "^4.1.1",
+		"dotenv": "^8.0.0",
 		"gulp": "^4.0.2",
-		"del": "^4.1.1"
+		"gulp-include": "^2.4.1",
+		"gulp-sass": "^4.0.2",
+		"gulp-shopify-upload-with-callbacks": "^2.4.0",
+		"gulp-watch": "^5.0.1"
 	}
 }
