@@ -1,9 +1,11 @@
 'use strict';
 
-const gulp 			= require('gulp');
 const del 			= require('del');
+const dotenv 		= require('dotenv').config(); /* require .env variables */
+const gulp 			= require('gulp');
 const sass 			= require('gulp-sass');
-const include			= require('gulp-include');
+const include 		= require('gulp-include');
+const shopify       = require('gulp-shopify-upload-with-callbacks');
 
 /*----- Clean Distribution directory -----*/
 gulp.task('clean', function() {
@@ -39,4 +41,14 @@ gulp.task('scripts', function() {
 		.pipe(gulp.dest('./dist/assets/'));
 });
 
-gulp.task('default', gulp.series('clean', 'copy', 'styles', 'scripts'));
+/*----- Deploy Theme -----*/
+gulp.task('deploy', function() {
+	if (!process.env.THEME_ID) {
+		return false;
+	} else {
+		return gulp.src('./dist/+(assets|config|layout|locales|sections|snippets|templates)/**')
+			.pipe(shopify(process.env.API_KEY, process.env.API_PASSWORD, process.env.STORE_URL, process.env.THEME_ID, {basePath: 'dist/'}))
+	}
+});
+
+gulp.task('build', gulp.series('clean', 'copy', 'styles', 'scripts'));
