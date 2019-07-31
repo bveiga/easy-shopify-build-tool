@@ -4,6 +4,7 @@ The absolutely easiest build tool for building and deploying your theme to your 
 ## Expected Project Structure
 ```
 --project-folder/
+  |--dist/ <-- this is the folder where files will go after a build
   |--src/
     |--assets/
     |--config/
@@ -38,14 +39,11 @@ This tool allows you to compile and deploy all your files to your Shopify theme.
 Reads each sass file in the root of the *styles* folder, and puts together files required using the **@import** sass function. Example file:
 
 ```css
-/*================ UTILS ================*/
-@import './tools/functions';
-@import './tools/mixins';
-
 /*================ MODULES ================*/
 @import './modules/header';
-@import './modules/footer';
 ```
+For the example above, let's say you have a **theme.scss** file in the root of the styles folder with the above code. The Gulp task would import all the files defined as above, compile the Sass, and create a new **theme.css** in the */dist/assets/* directory.
+
 #### 2. JS Files
 Reads each JavaScript file in the root of the **scripts** folder, and concatenates files required using the **// =require** function (from the gulp-include library). Example file:
 
@@ -53,10 +51,9 @@ Reads each JavaScript file in the root of the **scripts** folder, and concatenat
 /*================ Sections ================*/
 // =require sections/header.js
 
-/*================ Templates ================*/
-// =require templates/cart.js
-
 $(document).ready(function() {
 	// some code
 });
 ```
+For the example above, let's say you have a file **theme.js** in the root of the scripts folder with the above code in it. That means the gulp task will look for a folder named *sections*, try to find a file named **header.js** in there, and then concatenate it into a new **theme.js** file that will go into the */dist/assets/* directory.
+
