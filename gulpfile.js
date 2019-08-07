@@ -1,10 +1,11 @@
 'use strict';
 
 const del 			= require('del');
-const dotenv 		= require('dotenv').config(); /* require .env variables */
+const dotenv        = require('dotenv').config(); /* require .env variables */
 const gulp 			= require('gulp');
 const sass 			= require('gulp-sass');
-const include 		= require('gulp-include');
+const cleanCSS		= require('gulp-clean-css');
+const include		= require('gulp-include');
 const shopify       = require('gulp-shopify-upload-with-callbacks');
 const watch         = require('gulp-watch');
 
@@ -31,6 +32,7 @@ gulp.task('copy', function() {
 gulp.task('styles', function() {
 	return gulp.src('src/styles/*.scss')
 		.pipe(sass().on('error', sass.logError))
+		.pipe(cleanCSS())
 		.pipe(gulp.dest('./dist/assets/'));
 });
 
@@ -38,7 +40,7 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
 	return gulp.src('./src/scripts/*.js')
     	.pipe(include())
-			.on('error', console.log)
+      		.on('error', console.log)
 		.pipe(gulp.dest('./dist/assets/'));
 });
 
