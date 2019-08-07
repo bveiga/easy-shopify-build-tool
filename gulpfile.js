@@ -6,6 +6,7 @@ const gulp 			= require('gulp');
 const sass 			= require('gulp-sass');
 const include 		= require('gulp-include');
 const shopify       = require('gulp-shopify-upload-with-callbacks');
+const watch         = require('gulp-watch');
 
 /*----- Clean Distribution directory -----*/
 gulp.task('clean', function() {
@@ -36,8 +37,8 @@ gulp.task('styles', function() {
 /*----- Concat Js -----*/
 gulp.task('scripts', function() {
 	return gulp.src('./src/scripts/*.js')
-    		.pipe(include())
-		.on('error', console.log)
+    	.pipe(include())
+			.on('error', console.log)
 		.pipe(gulp.dest('./dist/assets/'));
 });
 
