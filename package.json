@@ -1,12 +1,12 @@
 {
 	"name": "simple-shopify-build-tool",
-	"version": "0.2",
+	"version": "1.0",
 	"author": "Bruno Veiga",
 	"description": "The absolutely simplest build tool for building and deploying your theme to your Shopify store. Engineered for minimum dependencies.",
 	"license": "MIT",
 	"repository": {
 	"type": "git",
-		"url": "https://github.com/bveiga/easy-shopify-build-tool.git"
+		"url": "https://github.com/bveiga/simple-shopify-build-tool.git"
 	},
 	"devDependencies": {
 		"del": "^4.1.1",
